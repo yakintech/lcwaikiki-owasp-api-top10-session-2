@@ -3,8 +3,10 @@ const app = express();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs'); //Hash library
 const secretKey = "secretkey"
+const cors = require('cors');
 
 app.use(express.json())
+app.use(cors());
 
 
 const suppliers = [
@@ -496,7 +498,7 @@ app.post('/login', (req, res) => {
     }
     else{
         const token = jwt.sign({ username: user.username }, secretKey);
-        res.json({ token: token });
+        res.status(200).json({ token: token });
     
     }
 })
