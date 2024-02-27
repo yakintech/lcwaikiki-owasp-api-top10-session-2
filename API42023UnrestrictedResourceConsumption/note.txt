@@ -1,2 +1,2 @@
 Unrestricted Resource Consumption
-API kaynaklarının ( CPU, bellek, disk) aşırı veya kötü niyetle tüketimi sonucu ortaya çıkan zaafiyer
+API kaynaklarının ( CPU, bellek, disk) aşırı veya kötü niyetle tüketimi sonucu ortaya çıkan zaafiyet

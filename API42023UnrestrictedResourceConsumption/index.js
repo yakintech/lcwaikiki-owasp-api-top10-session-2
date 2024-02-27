@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const slowDown = require("express-slow-down");
+const helmet = require('helmet');
+
 
 //1. rate limit
 const rateLimit = require("express-rate-limit");
@@ -20,11 +22,15 @@ const speedLimiter = slowDown({
 
 app.use(limiter);
 app.use(speedLimiter);
+app.use(helmet());
 
 app.get('/', (req, res) => {
     res.send('Hello World');
 })
 
+
+//body size max 10 kb
+app.use(express.json({ limit: '10kb' }));
 
 
 
@@ -32,3 +38,9 @@ app.get('/', (req, res) => {
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
 })
+
+
+//Rate Limit
+//Slow Down
+//Helmet
+//Body Size Limit
